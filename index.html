@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire VIP Bahama Mamas</title>
+    <title>VIP Bahama Mamas</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* Fond personnalisable */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: url() no-repeat center center fixed;
+            background: url(https://cdn.discordapp.com/attachments/1262009326462308424/1332778134377857105/vip-logo-template-design-4d689e7e91040916df14217ef869d470_screen.png?ex=67967ddd&is=67952c5d&hm=d9515894b1e20d3ac003b26a6f52ee9c4ae7e2f3cb69f889023bbaa1daee33f3) no-repeat center center fixed;
             background-size: cover;
             color: #fff;
         }
@@ -109,7 +110,7 @@
 <body>
 
 <div class="container">
-    <h1>Demande VIP Bahama Mamas</h1>
+    <h1>VIP Bahama Mamas</h1>
     <form id="vip-form">
         <!-- Nom complet -->
         <div class="form-group">
@@ -117,7 +118,7 @@
             <input type="text" id="name" name="name" placeholder="Entrez votre nom RP" required>
         </div>
 
-        <!-- Âge RP -->
+        <!-- Age RP -->
         <div class="form-group">
             <label for="age">Âge RP :</label>
             <input type="number" id="age" name="age" placeholder="Entrez votre âge RP" required>
@@ -131,13 +132,13 @@
 
         <!-- Raison pour devenir VIP -->
         <div class="form-group">
-            <label for="reason">Pourquoi souhaitez-vous devenir VIP ?</label>
+            <label for="reason">Raison pour devenir VIP :</label>
             <textarea id="reason" name="reason" placeholder="Expliquez pourquoi vous voulez devenir VIP" required></textarea>
         </div>
 
-        <!-- Mode de paiement -->
+        <!-- Mode de paiement (RP) -->
         <div class="form-group">
-            <label for="payment">Mode de paiement :</label>
+            <label for="payment">Mode de paiement (RP) :</label>
             <select id="payment" name="payment" required>
                 <option value="cash">Cash</option>
                 <option value="bank">Banque</option>
@@ -149,34 +150,34 @@
         <div class="price">Montant : 15 000 $ (RP)</div>
 
         <!-- Soumettre -->
-        <button type="submit">Envoyer la demande VIP</button>
+        <button type="button" id="submit-button">Valider la demande VIP</button>
     </form>
 
     <!-- Lien Discord -->
     <a href="https://discord.gg/zYk2PuKu" target="_blank" class="discord-button">Rejoindre le Discord</a>
 </div>
 
-<!-- Script EmailJS -->
+<!-- Intégration de EmailJS -->
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-    // Initialisation de l'ID utilisateur EmailJS
-    emailjs.init("TON_ID_EMAILJS");  // Remplace "TON_ID_EMAILJS" par ton vrai ID utilisateur
+    // Initialisation de l'ID utilisateur d'EmailJS
+    emailjs.init("K8fJqGBgOXXNRcbzn");
 
-    // Événement de soumission du formulaire
-    document.getElementById('vip-form').addEventListener('submit', function(event) {
-        event.preventDefault();  // Empêche l'envoi standard du formulaire
+    // Ajouter un écouteur d'événement sur le bouton de soumission
+    document.getElementById('submit-button').addEventListener('click', function(event) {
+        event.preventDefault();  // Empêche la soumission par défaut du formulaire
 
-        // Récupération des données du formulaire
-        const formData = new FormData(this);
+        // Récupère les données du formulaire
+        const formData = new FormData(document.getElementById('vip-form'));
 
-        // Envoi des données à EmailJS
-        emailjs.sendForm('service_xxx', 'template_xxx', formData)  // Remplace "service_xxx" et "template_xxx" par tes propres identifiants EmailJS
+        // Envoie les données via EmailJS
+        emailjs.sendForm('service_nh23r52', 'template_u27fcxf', formData)
             .then(function(response) {
-                // Si le formulaire est envoyé avec succès
-                alert('Demande envoyée avec succès');
+                // Si la soumission est réussie, affiche un message de succès
+                alert('Demande VIP envoyée avec succès !');
             }, function(error) {
-                // Si une erreur se produit
-                alert('Erreur lors de l\'envoi de la demande');
+                // Si une erreur se produit, affiche un message d'erreur
+                alert('Erreur lors de l\'envoi de la demande.');
             });
     });
 </script>
